@@ -13,14 +13,17 @@ public class ExecuteTest {
 //		} catch (IOException e) {
 //		    e.printStackTrace();
 //		}
-		// 2 file open in cmd
+		
+		// 2 file open in cmd (Windows)
 		try {
+			//Start
 			ProcessBuilder processBuilder = new ProcessBuilder(
 					"cmd","/c", "C:\\Users\\Jin\\Desktop/putty.exe");
 			processBuilder.start();
 					
 			Thread.sleep(1000);
 			
+			//Search process ID to kill
 			Runtime runtime1 = Runtime.getRuntime();
 			Process process1 = runtime1.exec("wmic process where name=\"putty.exe\" get processid");
 //			Process process = runtime1.exec("tasklist");
@@ -46,12 +49,8 @@ public class ExecuteTest {
 		    
 		    br.close();
 		    
-//		    Thread.sleep(2000);
-		    
-//			String tempPID = "4104";
-//			runtime1.exec("cmd /c TASKKILL /F /PID " + tempPID);
-			
-//			Thread.sleep(10000);
+		    //Kill the searched processID on process scheduler
+			runtime1.exec("cmd /c TASKKILL /F /PID " + resultString);
 			
 			
 		} catch (IOException e) {
