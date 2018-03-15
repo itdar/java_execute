@@ -13,7 +13,8 @@ public class ExecuteTest {
 //		} catch (IOException e) {
 //		    e.printStackTrace();
 //		}
-		// 2 file open in cmd
+		
+		// 2 file open in cmd (Windows)
 		try {
 			//Execute application
 			ProcessBuilder processBuilder = new ProcessBuilder(
@@ -54,7 +55,6 @@ public class ExecuteTest {
 			runtime1.exec("cmd /c TASKKILL /F /PID " + resultString);
 			
 			Thread.sleep(10000);
-			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
